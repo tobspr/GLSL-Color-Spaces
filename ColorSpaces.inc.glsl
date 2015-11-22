@@ -132,11 +132,6 @@ vec3 xyY_to_rgb(vec3 xyY) {
     return xyz_to_rgb(xyz);
 }
 
-
-// Converts a color from linear RGB space to HSV
-// From: http://lolengine.net/blog/2013/07/27/rgb-to-hsv-in-glsl
-
-
 // Converts a value from linear RGB to HCV (Hue, Chroma, Value)
 vec3 rgb_to_hcv(vec3 rgb)
 {
