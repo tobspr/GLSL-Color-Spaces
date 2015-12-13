@@ -63,10 +63,12 @@ const mat3 XYZ_2_RGB = (mat3(
      0.0556434,-0.2040259, 1.0572252
 ));
 
+const vec3 LUMA_COEFFS = vec3(0.2126, 0.7152, 0.0722); 
+
 
 // Returns the luminance of a !! linear !! rgb color
 float get_luminance(vec3 rgb) {
-    return 0.2126 * rgb.r + 0.7152 * rgb.g + 0.0722 * rgb.b;    
+    return dot(LUMA_COEFFS, rgb);
 }
 
 // Converts a linear rgb to a srgb color (approximated, but fast)
