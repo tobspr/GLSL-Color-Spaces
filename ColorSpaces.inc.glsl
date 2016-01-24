@@ -8,7 +8,7 @@ GLSL Color Space Utility Functions
 
 The MIT License (MIT)
 
-Copyright (c) 2015 
+Copyright (c) 2015
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -63,7 +63,7 @@ const mat3 XYZ_2_RGB = (mat3(
      0.0556434,-0.2040259, 1.0572252
 ));
 
-const vec3 LUMA_COEFFS = vec3(0.2126, 0.7152, 0.0722); 
+const vec3 LUMA_COEFFS = vec3(0.2126, 0.7152, 0.0722);
 
 
 // Returns the luminance of a !! linear !! rgb color
@@ -85,7 +85,7 @@ float linear_to_srgb(float channel) {
         return 12.92 * channel;
     else
         return (1.0 + a) * pow(channel, 1.0/2.4) - a;
-} 
+}
 
 // Converts a linear rgb color to a srgb color (exact, not approximated)
 vec3 rgb_to_srgb(vec3 rgb) {
