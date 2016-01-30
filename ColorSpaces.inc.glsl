@@ -240,7 +240,8 @@ vec3 rgb_to_hcy(vec3 rgb)
     return vec3(HCV.x, HCV.y, Y);
 }
 
-// Additional conversations doing multiple internal conversions
+// Additional conversions converting to rgb first and then to the desired
+// color space.
 
 // To srgb
 vec3 xyz_to_srgb(vec3 xyz)  { return rgb_to_srgb(xyz_to_rgb(xyz)); }
