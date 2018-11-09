@@ -4,18 +4,20 @@ Utility functions to convert between various color spaces in GLSL
 
 ## Supported conversions
 
-**X** = Directly implemented
+**d** = directly implemented
 
 **x** = Implemented using two or more direct implementions
 
- From / To | RGB | sRGB | XYZ | xyY | HCV | HUE | HSV | HSL | HCY
-|---       |-----|------|-----|-----|-----|-----|-----|-----|-----|
-| **RGB**  |  X  |  X   |  X  |  X  |  X  |     |  X  |  X  |  X  |
-| **sRGB** |  X  |  X   |  x  |  x  |  x  |     |  x  |  x  |  x  |
-| **XYZ**  |  X  |  x   |  X  |  X  |  x  |     |  x  |  x  |  x  |
-| **xyY**  |  X  |  x   |  X  |  X  |  x  |     |  x  |  x  |  x  |
-| **HCV**  |     |      |     |     |  X  |     |     |     |     |
-| **HUE**  |  X  |  x   |  x  |  x  |  x  |  X  |  x  |  x  |  x  |
-| **HSV**  |  X  |  x   |  x  |  x  |  x  |     |  X  |  x  |  x  |
-| **HSL**  |  X  |  x   |  x  |  x  |  x  |     |  x  |  X  |  x  |
-| **HCY**  |  X  |  x   |  x  |  x  |  x  |     |  x  |  x  |  X  |
+ From / To  | RGB | sRGB | XYZ | xyY | HCV | HUE | HSV | HSL | HCY | YCbCr |
+|---        |-----|------|-----|-----|-----|-----|-----|-----|-----|-------|
+| **RGB**   |  d  |  d   |  d  |  d  |  d  |     |  d  |  d  |  d  |   d   |
+| **sRGB**  |  d  |  d   |  x  |  x  |  x  |     |  x  |  x  |  x  |   x   |
+| **XYZ**   |  d  |  x   |  d  |  d  |  x  |     |  x  |  x  |  x  |   x   |
+| **xyY**   |  d  |  x   |  d  |  d  |  x  |     |  x  |  x  |  x  |   x   |
+| **HCV**   |     |      |     |     |  d  |     |     |     |     |       |
+| **HUE**   |  d  |  x   |  x  |  x  |  x  |  d  |  x  |  x  |  x  |   x   |
+| **HSV**   |  d  |  x   |  x  |  x  |  x  |     |  d  |  x  |  x  |   x   |
+| **HSL**   |  d  |  x   |  x  |  x  |  x  |     |  x  |  d  |  x  |   x   |
+| **HCY**   |  d  |  x   |  x  |  x  |  x  |     |  x  |  x  |  d  |   x   |
+| **YCbCr** |  d  |  x   |  x  |  x  |  x  |     |  x  |  x  |  x  |   d   |
+
