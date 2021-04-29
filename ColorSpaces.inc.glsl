@@ -162,16 +162,16 @@ vec3 rgb_to_hcv(vec3 rgb)
     vec4 P = (rgb.g < rgb.b) ? vec4(rgb.bg, -1.0, 2.0/3.0) : vec4(rgb.gb, 0.0, -1.0/3.0);
     vec4 Q = (rgb.r < P.x) ? vec4(P.xyw, rgb.r) : vec4(rgb.r, P.yzx);
     float C = Q.x - min(Q.w, Q.y);
-    float H = abs((Q.w - Q.y) / (6 * C + HCV_EPSILON) + Q.z);
+    float H = abs((Q.w - Q.y) / (6.0 * C + HCV_EPSILON) + Q.z);
     return vec3(H, C, Q.x);
 }
 
 // Converts from pure Hue to linear RGB
 vec3 hue_to_rgb(float hue)
 {
-    float R = abs(hue * 6 - 3) - 1;
-    float G = 2 - abs(hue * 6 - 2);
-    float B = 2 - abs(hue * 6 - 4);
+    float R = abs(hue * 6.0 - 3.0) - 1.0;
+    float G = 2.0 - abs(hue * 6.0 - 2.0);
+    float B = 2.0 - abs(hue * 6.0 - 4.0);
     return saturate(vec3(R,G,B));
 }
 
@@ -186,7 +186,7 @@ vec3 hsv_to_rgb(vec3 hsv)
 vec3 hsl_to_rgb(vec3 hsl)
 {
     vec3 rgb = hue_to_rgb(hsl.x);
-    float C = (1 - abs(2 * hsl.z - 1)) * hsl.y;
+    float C = (1.0 - abs(2.0 * hsl.z - 1.0)) * hsl.y;
     return (rgb - 0.5) * C + hsl.z;
 }
 
@@ -198,8 +198,8 @@ vec3 hcy_to_rgb(vec3 hcy)
     float Z = dot(RGB, HCYwts);
     if (hcy.z < Z) {
         hcy.y *= hcy.z / Z;
-    } else if (Z < 1) {
-        hcy.y *= (1 - hcy.z) / (1 - Z);
+    } else if (Z < 1.0) {
+        hcy.y *= (1.0 - hcy.z) / (1.0 - Z);
     }
     return (RGB - Z) * hcy.y + hcy.z;
 }
@@ -218,7 +218,7 @@ vec3 rgb_to_hsl(vec3 rgb)
 {
     vec3 HCV = rgb_to_hcv(rgb);
     float L = HCV.z - HCV.y * 0.5;
-    float S = HCV.y / (1 - abs(L * 2 - 1) + HSL_EPSILON);
+    float S = HCV.y / (1.0 - abs(L * 2.0 - 1.0) + HSL_EPSILON);
     return vec3(HCV.x, S, L);
 }
 
@@ -233,7 +233,7 @@ vec3 rgb_to_hcy(vec3 rgb)
     if (Y < Z) {
       HCV.y *= Z / (HCY_EPSILON + Y);
     } else {
-      HCV.y *= (1 - Z) / (HCY_EPSILON + 1 - Y);
+      HCV.y *= (1.0 - Z) / (HCY_EPSILON + 1.0 - Y);
     }
     return vec3(HCV.x, HCV.y, Y);
 }
